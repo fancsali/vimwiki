@@ -5,13 +5,13 @@ function! vimwiki#todo#list()
 
   let files = path . diary_rel_path . '*.md'
 
-  call setqflist([])
+  :call setqflist([])
 
-  silent call setqflist([{'text': '# In progress'}], 'a')
-  silent execute 'vimgrepadd /\- \[\.\]/ ' . files
+  ;silent call setqflist([{'text': '# In progress'}], 'a')
+  silent execute 'lvimgrep /\- \[\.\]/ ' . files
 
-  silent call setqflist([{'text': '# To Do'}], 'a')
-  silent execute 'vimgrepadd /\- \[ \]/' . files
+  :silent call setqflist([{'text': '# To Do'}], 'a')
+  silent execute 'lvimgrepadd /\- \[ \]/' . files
 
   copen
 
